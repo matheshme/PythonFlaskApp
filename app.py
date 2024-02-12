@@ -8,7 +8,7 @@ def create_app():
 
     @app.route('/')
     def home():
-        return 'This is my First CI/CD Pipeline'
+        return 'I am just Testing'
 
     return app
 if __name__ == '__main__':
