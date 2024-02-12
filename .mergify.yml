@@ -5,9 +5,9 @@ pull_request_rules:
     actions:
       request_reviews:
         users:
-            - "mathesh-me"
+            - "sudhanshuvlog"
       comment:
-        message: "Requesting review from Mathesh"
+        message: "Requesting review from Sudhanshu"
             
   - name: My Conflict
     conditions:
