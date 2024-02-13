@@ -1,7 +1,7 @@
 pull_request_rules:
   - name: Merge when all checks pass
     conditions:
-      - "#checks >= 1"
+      - "#checks > 0"
       - status-success=checks
     actions:
       merge:
