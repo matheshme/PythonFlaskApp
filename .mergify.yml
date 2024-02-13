@@ -1,14 +1,9 @@
-- name: Merge on all workflows passing
-
-  # Conditions: Check status of all specified workflows
-  conditions:
-    - all_checks_must_pass:
-        workflows: ["Upload Python Package"]
-
-  # Optional additional conditions (if applicable)
-  # - labels: ["approved", "ready-to-merge"]
-  # - approvals: 1
-
-  # Actions: Merge after conditions are met
-  actions:
-    - merge
+pull_request_rules:
+  - name: Merge when all checks pass
+    conditions:
+      - "#checks >= 1"
+      - status-success=checks
+    actions:
+      merge:
+        method: merge
+        strict: true
