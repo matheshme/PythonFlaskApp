@@ -19,5 +19,5 @@ phases:
 
 artifacts:
   files:
-    - **/*
+    - samplefile
   bucket-name: codepipeline-us-east-1-547174674211
