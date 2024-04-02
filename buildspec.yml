@@ -3,17 +3,23 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.8
+      python: 3.11
     commands:
-      - apt-get update
-      - apt-get install -y python3-pip
+      - pip install -r requirements.txt
   pre_build:
     commands:
-      - pip3 install -r requirements.txt
+      - echo "Pre-build steps go here if needed"
   build:
     commands:
-      - echo "Starting Flask application..."
-      - python3 app.py
+      - echo "Build started on `date`"
+      # Add your build commands here, such as running tests, compiling assets, etc.
+  post_build:
+    commands:
+      - echo "Post-build steps go here if needed"
 artifacts:
+  type: zip
   files:
     - '**/*'
+cache:
+  paths:
+    - ~/.cache/pip
