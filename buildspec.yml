@@ -18,7 +18,7 @@ phases:
       - docker push public.ecr.aws/h6r8z9q9/python-app:latest
 
   artifacts:
-  files:
-    - **/*
-    # - location
-  bucket-name: codepipeline-us-east-1-547174674211
+    files:
+      - **/*
+      # - location
+    bucket-name: codepipeline-us-east-1-547174674211
