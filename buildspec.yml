@@ -21,4 +21,4 @@ phases:
   files:
     - **/*
     # - location
-  bucket-name: codepipeline-ap-south-1-700690677109
+  bucket-name: codepipeline-us-east-1-547174674211
