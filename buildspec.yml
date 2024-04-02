@@ -2,24 +2,17 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      python: 3.11
     commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/h6r8z9q9
+      - echo Installing dependencies...
       - pip install -r requirements.txt
-  pre_build:
-    commands:
-      - echo "Pre-build steps go here if needed"
   build:
     commands:
-      - echo "Build started on `date`"
-      # Add your build commands here, such as running tests, compiling assets, etc.
+      - echo Building Docker image...
+      - docker build -t python-app .
+      - docker tag python-app:latest public.ecr.aws/h6r8z9q9/python-app:latest
   post_build:
     commands:
-      - echo "Post-build steps go here if needed"
-artifacts:
-  type: zip
-  files:
-    - '**/*'
-cache:
-  paths:
-    - ~/.cache/pip
+      - echo Pushing image to ECR...
+      - docker push public.ecr.aws/h6r8z9q9/python-app:latest
