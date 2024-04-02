@@ -16,3 +16,9 @@ phases:
     commands:
       - echo Pushing image to ECR...
       - docker push public.ecr.aws/h6r8z9q9/python-app:latest
+
+  artifacts:
+  files:
+    - **/*
+    # - location
+  bucket-name: codepipeline-ap-south-1-700690677109
