@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - pip install -r requirements.txt
+  pre_build:
+    commands:
+      - echo "Pre-build steps go here if needed"
+  build:
+    commands:
+      - echo "Build started on `date`"
+      # Add your build commands here, such as running tests, compiling assets, etc.
+  post_build:
+    commands:
+      - echo "Post-build steps go here if needed"
+artifacts:
+  type: zip
+  files:
+    - '**/*'
+cache:
+  paths:
+    - ~/.cache/pip
