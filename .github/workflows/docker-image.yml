@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build --tag mathesh1234/pythonflaskapp .
+      run: docker build --tag mathesh1234/pythonflaskapp:${{ github.sha }} .
 
     - name: Login to Docker Hub
       uses: docker/login-action@v3
@@ -42,7 +42,7 @@ jobs:
           echo "checkout main branch"
           git checkout main
           echo "updating image tag in values file"
-          sed -i "s,tag:.*,tag:\ ${{ github.sha }}," helm/webapp/values.yaml
+          sed -i "s,tag:.*,tag:\ ${{ github.sha }}," values.yaml
           git add . && git commit -m "update image tag"
           git push
 
