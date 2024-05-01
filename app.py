@@ -20,8 +20,7 @@
 from flask import Flask, render_template, request
 
 def create_app():
-    app = Flask(__name__)
-
+    app = Flask(__name__, template_folder='templates')
     # Homepage route
     @app.route('/')
     def home():
