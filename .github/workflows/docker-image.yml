@@ -31,7 +31,7 @@ jobs:
           tags: mathesh1234/pythonflaskapp:${{ github.sha }}
   promote-to-dev-environment:
     runs-on: ubuntu-latest
-    needs: docker-build-push
+    needs: build
     steps:
       - run: |
           echo "promoting into dev environment!"
